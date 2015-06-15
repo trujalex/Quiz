@@ -5,9 +5,10 @@ exports.question = function(req, res) {
 
 //GET /quizes/answer
 exports.answer = function(req, res) {
- if(req.query.respuesta === 'Roma'){
-   res.render('quizes/answer', {respuesta: 'Correcto'});
+ var resp = (req.query.respuesta || "");
+ if(resp.toUpperCase() === 'ROMA'){
+   res.render('quizes/answer', {respuesta: 'correcta.'});
  } else {
-   res.render('quizes/answer', {respuesta: 'Incorrecto'});
+   res.render('quizes/answer', {respuesta: 'incorrecta.'});
  }
 };
